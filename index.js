@@ -1,11 +1,8 @@
-//console.log("texto prueva")
-// console.log("texto de prueba con nodemon")
-
 const express = require('express'); //Llamada del servicio de express
 const conectarDB = require('./config/db');
 
 const aplicacion = express(); //implementando el servicio en la aplicacion
-//const aplicacion1= express();
+const aplicacionform= express();
 
 conectarDB();
 
@@ -16,9 +13,10 @@ conectarDB();
 //aplicacion.use('/api/agregarproducto', require('./routes/producto'));
 //aplicacion1.use('/api/agregarformulario', require('./routes/formulario'));
 aplicacion.use(express.json());
+aplicacionform.use(express.json());
 
 aplicacion.use('/api/producto', require('./Routes/producto'));
-
+aplicacionform.use('/api/formulario',require('./Routes/formulario'));
 
 
 
@@ -28,3 +26,6 @@ aplicacion.listen(4000, () => {
 
 });
 
+aplicacionform.listen(4100,()=>{
+    console.log("El servidor del formulario esta funcionando");
+})

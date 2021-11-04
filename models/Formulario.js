@@ -18,6 +18,11 @@ const FormularioSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    telefono: {
+        type: String,
+        required: true
+    },
+
     direccion: {
         type: String,
         required: true

@@ -32,8 +32,8 @@ exports.actualizarProducto = async(req,res)=>{
     try{
         console.log(req.body)
 
-        const{nombre,ubicacio,precio,proveedor}= req.body
-let data_producto=Producto.findById(req.params.id);
+        const{nombre,ubicacion,precio,proveedor}= req.body
+let data_producto= await Producto.findById(req.params.id);
 console.log(data_producto)
 if(!data_producto){
     res.status(404).json({ msg: 'No existe el producto solicitado'})
